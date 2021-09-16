@@ -14,17 +14,30 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    # Install Go.
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16.x
+
+    - name: init
+      run: make init
+
+    - name: static check
+      run: make static-check
+
+    # Setup cache for go modules.
+    - uses: actions/cache@v2
+      with:
+        # In order:
+        # * Module download cache
+        # * Build cache (Linux)
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-go-
+
     - name: build
       run: make build
-
-#     - name: configure
-#       run: ./configure
-      
-#     - name: Install dependencies
-#       run: make
-      
-#     - name: Run check
-#       run: make check
-      
-#     - name: Run distcheck
-#       run: make distcheck

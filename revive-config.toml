@@ -1,0 +1,66 @@
+# When set to false, ignores files with "GENERATED" header, similar to golint
+ignoreGeneratedHeader = false
+
+# Sets the default severity to "warning"
+severity = "warning"
+
+# Sets the default failure confidence. This means that linting errors
+# with less than 0.8 confidence will be ignored.
+confidence = 0.8
+
+# Sets the error code for failures with severity "error"
+errorCode = 0
+
+# Sets the error code for failures with severity "warning"
+warningCode = 1
+
+# [rule.add-constant]
+arguments = [{maxLitCount = "3",allowStrs ="\"\"",allowInts="0,1,2",allowFloats="0.0,0.,1.0,1.,2.0,2."}]
+[rule.argument-limit]
+arguments =[9]
+[rule.atomic]
+# [rule.blank-imports]
+[rule.confusing-naming]
+[rule.confusing-results]
+[rule.constant-logical-expr]
+[rule.context-as-argument]
+[rule.context-keys-type]
+[rule.dot-imports]
+[rule.deep-exit]
+[rule.defer]
+arguments=[["call-chain","loop", "method-call", "recover", "return"]]
+[rule.early-return]
+[rule.error-return]
+[rule.error-strings]
+[rule.error-naming]
+[rule.exported]
+[rule.function-length]
+arguments =[45,0]
+[rule.function-result-limit]
+arguments =[3]
+[rule.line-length-limit]
+arguments =[120]
+[rule.if-return]
+[imports-blacklist]
+arguments =["crypto/md5", "crypto/sha1"]
+[rule.increment-decrement]
+[rule.var-naming]
+arguments = [["ID"], ["VM"]]
+[rule.var-declaration]
+# Sets the severity of the `package-comments` rule to "error".
+[rule.package-comments]
+severity = "error"
+[rule.range]
+[rule.receiver-naming]
+[rule.time-naming]
+[rule.unexported-return]
+[rule.indent-error-flow]
+[rule.errorf]
+[rule.empty-block]
+[unhandled-error]
+arguments =["fmt.Printf", "myFunction"]
+[rule.superfluous-else]
+[rule.unused-parameter]
+[rule.unused-receiver]
+[rule.unreachable-code]
+[rule.redefines-builtin-id]
