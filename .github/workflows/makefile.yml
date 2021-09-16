@@ -14,17 +14,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: init
+      run: make init
+
     - name: build
       run: make build
 
-#     - name: configure
-#       run: ./configure
-      
-#     - name: Install dependencies
-#       run: make
-      
-#     - name: Run check
-#       run: make check
-      
-#     - name: Run distcheck
-#       run: make distcheck
+    - name: static check
+      run: make static-check
